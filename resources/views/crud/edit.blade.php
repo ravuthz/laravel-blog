@@ -9,13 +9,13 @@
 @section('content')
 
     @include('crud.alert')
-    
+
     <div class="row">
         <div class="col-xs-12">
             @if (view()->exists($view_prefix . '.form'))
                 <div class="box">
                     <div class="box-header">
-                        {!! BootForm::open(['model' => $crud_item, 'store' => $route_prefix . '.store', 'update' => $route_prefix . '.update']) !!}
+                        {!! BootForm::open(['model' => $__data[$item_name], 'store' => $route_prefix . '.store', 'update' => $route_prefix . '.update']) !!}
                                 @include($view_prefix . '.form')
                         {!! BootForm::close() !!}
                     </div>

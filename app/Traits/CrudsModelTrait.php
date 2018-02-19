@@ -3,22 +3,29 @@
 namespace App\Traits;
 
 trait CrudsModelTrait {
- 
+
     /**
-     * Validate for store and update actions
+     * Get only validate rules for create action
+     * @return validation rules
      */
-    public static $validateRules = [];
-    
+    public function getCreateValidationRules() {
+        if (isset($this->createValidateRules)) {
+            $this->validateRules = $this->createValidateRules;
+        }
+        return $this->validateRules;
+    }
+
     /**
-     * Validate only store action
+     * Get only validate rules for update action
+     * @return validation rules
      */
-    public static $createValidateRules = [];
-    
-    /**
-     * Validate only update action
-     */
-    public static $updateValidateRules = [];
-    
+    public function getUpdateValidationRules() {
+        if (isset($this->updateValidateRules)) {
+            $this->validateRules = $this->updateValidateRules;
+        }
+        return $this->validateRules;
+    }
+
     /**
      * Create or Update data with provide request
      */
